@@ -1,65 +1,66 @@
 .navbar {
-    color: white;
-    font-size: 14px;
-    padding: 0 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 70px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: linear-gradient(to top, transparent 0%, rgb(0,0,0,0.3) 50%)
+  color: white;
+  font-size: 14px;
+  padding: 0 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(to top, transparent 0%, rgb(0, 0, 0, 0.3) 50%);
 }
 
 .scrolled {
-    background-color: #0b0b0b;
+  background-color: #0b0b0b;
 }
 
 .netflix-logo {
-    height: 25px;
-    object-fit: contain;
-    margin-right: 40px
+  height: 25px;
+  object-fit: contain;
+  margin-right: 40px;
 }
 
 .left {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .nav-tags {
-    margin-right: 20px;
-    cursor: pointer;
+  margin-right: 20px;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
 .right {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .profile-picture {
-    height: 30px;
-    width: 30px;
-    border-radius: 5px;
-    object-fit: contain;
-    cursor: pointer;
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+  object-fit: contain;
+  cursor: pointer;
 }
 
 .icon {
-    margin: 0 15px;
-    cursor: pointer;
+  margin: 0 15px;
+  cursor: pointer;
 }
 
 .options {
-    display: none;
+  display: none;
 }
 
 .profile:hover .options {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    background-color: #0b0b0b;
-    border-radius: 5px;
-    padding: 10px;
-    cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: #0b0b0b;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
 }
