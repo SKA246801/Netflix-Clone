@@ -15,8 +15,8 @@
 .categories {
   cursor: pointer;
   background-color: #0b0b0b;
-  border: 1px solid white;
-  color: white;
+  border: 1px solid #fff;
+  color: #fff;
   margin-left: 20px;
   padding: 5px;
 }
@@ -34,7 +34,7 @@
   position: absolute;
   left: 50px;
   bottom: 100px;
-  color: white;
+  color: #fff;
 }
 
 .featured-img {
@@ -62,12 +62,12 @@
 
 .play {
   color: #0b0b0b;
-  background-color: white;
+  background-color: #fff;
 }
 
 .more {
   background-color: gray;
-  color: white;
+  color: #fff;
 }
 
 button span {
