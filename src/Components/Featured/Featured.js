@@ -9,7 +9,7 @@ function Featured({ type }) {
       {type && (
         <div className='category'>
           <span>{type === 'movies' ? 'Movies' : 'Series'}</span>
-          <select name='genre' id='genre'>
+          <select name='genre' id='genre' className='categories'>
             <option value='genre'>Genre</option>
             <option value='adventure'>Adventure</option>
             <option value='comedy'>Comedy</option>
@@ -27,15 +27,19 @@ function Featured({ type }) {
           </select>
         </div>
       )}
-      <img src={require('../../Assets/Images/marvel.jpg')} alt='' />
+      <img
+        src={require('../../Assets/Images/marvel.jpg')}
+        className='background-img'
+        alt=''
+      />
 
       <div className='info'>
         <img
           src={require('../../Assets/Images/marvel.jpg')}
-          className='movie-img'
+          className='featured-img'
           alt='movie'
         />
-        <span className='description'>
+        <span className='featured-description'>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores,
           autem ex accusantium magni tenetur incidunt quasi nostrum repellendus
           voluptatem omnis velit voluptatibus est aspernatur laboriosam odio

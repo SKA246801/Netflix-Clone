@@ -1,0 +1,43 @@
+.list {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.list-title {
+  color: white;
+  font-size: 20px;
+  margin-left: 50px;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.wrapper .arrow {
+  width: 50px;
+  height: 100%;
+  background-color: rgb(22, 22, 22, 0.5);
+  color: white;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  cursor: pointer;
+}
+
+.left-arrow {
+  z-index: 1;
+  left: 0;
+}
+
+.right-arrow {
+  right: 0;
+}
+
+.container {
+  margin: 10px 0 0 50px;
+  display: flex;
+  width: max-content;
+  transform: translateX(0px);
+  transition: all 1s ease;
+}

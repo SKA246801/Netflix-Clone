@@ -1,12 +1,12 @@
 .navbar {
+  width: 100%;
   color: white;
   font-size: 14px;
-  padding: 0 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 70px;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 100;
   background: linear-gradient(to top, transparent 0%, rgb(0, 0, 0, 0.3) 50%);
@@ -19,7 +19,7 @@
 .netflix-logo {
   height: 25px;
   object-fit: contain;
-  margin-right: 40px;
+  margin: 0 40px 0 50px;
 }
 
 .left {
