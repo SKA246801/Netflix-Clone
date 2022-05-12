@@ -57,7 +57,7 @@ router.get('/', verify, async (req, res) => {
       return res.status(500).json(e)
     }
   } else {
-    return res.status(403).json('You are not an admin!')
+    return res.status(403).json('You do not have admin privileges!')
   }
 })
 
