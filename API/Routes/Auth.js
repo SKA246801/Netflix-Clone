@@ -23,7 +23,7 @@ router.post('/login', async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email })
     if (!user) {
-      return res.status(401).json('Wrong username or password!fdsfdsaa')
+      return res.status(401).json('Wrong username or password!')
     }
 
     const bytes = CryptoJS.AES.decrypt(user.password, process.env.sometext2)
