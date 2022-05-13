@@ -13,6 +13,9 @@
   color: #fff;
   cursor: pointer;
   z-index: 2;
+  font-size: 35px;
+  background-color: black;
+  padding: 10px;
 }
 
 .watch-video {

@@ -15,7 +15,7 @@ function ListItem({ index, item }) {
         const response = await axios.get(`/movies/find/${item}`, {
           headers: {
             token:
-              'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyN2QxYmIxODMzNGUxZGRhZWQxZWRkNSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MjQ1NDc4MSwiZXhwIjoxNjUyNDYxOTgxfQ.bSgamjZ1saeN5RRtyaK1f2y7rxgE3MCqui_uwMAMn8Q',
+              'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyN2QxYmIxODMzNGUxZGRhZWQxZWRkNSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MjQ4MTU2NiwiZXhwIjoxNjUyNDg4NzY2fQ.ggR1p02sGSRYgjCceQO_M2FWJ2XGrF2Yn5L67hmCiMM',
           },
         })
         setMovie(response.data)
@@ -26,7 +26,7 @@ function ListItem({ index, item }) {
     getMovie()
   }, [item])
   return (
-    <Link to='/watch' movie={movie}>
+    <Link to='/watch' state={movie}>
       <div
         className='list-item'
         style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
