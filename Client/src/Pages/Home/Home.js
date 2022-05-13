@@ -15,10 +15,11 @@ function Home({ type }) {
         const response = await axios.get(`lists${type ? '?type=' + type : ''}${genre ? '&genre=' + genre : ''}`, {
           headers: {
             token:
-              'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyN2QxYmIxODMzNGUxZGRhZWQxZWRkNSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MjM5MzkwNSwiZXhwIjoxNjUyNDAxMTA1fQ.nGlkGqD_YBSjdR3OTqUXs_WEdFF-HwTZty3iijIhWTQ',
+              'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyN2QxYmIxODMzNGUxZGRhZWQxZWRkNSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MjQ1NDc4MSwiZXhwIjoxNjUyNDYxOTgxfQ.bSgamjZ1saeN5RRtyaK1f2y7rxgE3MCqui_uwMAMn8Q',
           },
         })
         setLists(response.data)
+        return response.data
       } catch (e) {
         console.log(e)
       }

@@ -9,9 +9,9 @@ router.post('/', verify, async (req, res) => {
 
     try {
       const savedList = await newList.save()
-      res.status(201).json(savedList)
+      return res.status(201).json(savedList)
     } catch (e) {
-      res.status(500).json(e)
+      return res.status(500).json(e)
     }
   } else {
     return res.status(403).json('You do not have admin privileges!')
@@ -23,9 +23,9 @@ router.delete('/:id', verify, async (req, res) => {
   if (req.user.isAdmin) {
     try {
       await List.findByIdAndDelete(req.params.id)
-      res.status(201).json('The list has been deleted')
+      return res.status(201).json('The list has been deleted')
     } catch (e) {
-      res.status(500).json(e)
+      return res.status(500).json(e)
     }
   } else {
     return res.status(403).json('You do not have admin privileges!')
@@ -41,16 +41,16 @@ router.get('/', verify, async (req, res) => {
   try {
     if (typeQuery) {
       if (genreQuery) {
-        list = await List.aggregate([{ $sample: { size: 5 } }, { $match: { type: typeQuery, genre: genreQuery } }])
+        list = await List.aggregate([{ $sample: { size: 10 } }, { $match: { type: typeQuery, genre: genreQuery } }])
       } else {
-        list = await List.aggregate([{ $sample: { size: 5 } }, { $match: { type: typeQuery } }])
+        list = await List.aggregate([{ $sample: { size: 10 } }, { $match: { type: typeQuery } }])
       }
     } else {
-      list = await List.aggregate([{ $sample: { size: 5 } }])
+      list = await List.aggregate([{ $sample: { size: 10 } }])
     }
-    res.status(200).json(list)
+    return res.status(200).json(list)
   } catch (e) {
-    res.status(500).json(e)
+    return res.status(500).json(e)
   }
 })
 

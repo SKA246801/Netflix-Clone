@@ -39,7 +39,7 @@ router.delete('/:id', verify, async (req, res) => {
       await Movie.findByIdAndDelete(req.params.id)
       res.status(200).json('The movie has been deleted')
     } catch (e) {
-      res.status(500).json(e)
+      return res.status(500).json(e)
     }
   } else {
     return res.status(403).json('You do not have admin privileges!')
@@ -50,9 +50,9 @@ router.delete('/:id', verify, async (req, res) => {
 router.get('/find/:id', verify, async (req, res) => {
   try {
     const movie = await Movie.findById(req.params.id)
-    res.status(200).json(movie)
+    return res.status(200).json(movie)
   } catch (e) {
-    res.status(500).json(e)
+    return res.status(500).json(e)
   }
 })
 
@@ -61,9 +61,9 @@ router.get('/', verify, async (req, res) => {
   if (req.user.isAdmin) {
     try {
       const movies = await Movie.find()
-      res.status(200).json(movies.reverse())
+      return res.status(200).json(movies.reverse())
     } catch (e) {
-      res.status(500).json(e)
+      return res.status(500).json(e)
     }
   } else {
     return res.status(403).json('You do not have admin privileges!')
@@ -80,9 +80,9 @@ router.get('/random', verify, async (req, res) => {
     } else {
       movie = await Movie.aggregate([{ $match: { isSeries: false } }, { $sample: { size: 1 } }])
     }
-    res.status(200).json(movie)
+    return res.status(200).json(movie)
   } catch (e) {
-    res.status(500).json(e)
+    return res.status(500).json(e)
   }
 })
 
