@@ -1,9 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Featured.css'
 
 import { InfoOutlined, PlayArrow } from '@mui/icons-material'
+import axios from 'axios'
 
 function Featured({ type }) {
+  const [content, setContent] = useState({})
+
+  useEffect(() => {
+    const getRandomContent = async () => {
+      try {
+        const response = await axios.get(`movies/random${type ? `?type=${type}` : ''}`, {
+          headers: {
+            token:
+              'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyN2QxYmIxODMzNGUxZGRhZWQxZWRkNSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MjQ4MTU2NiwiZXhwIjoxNjUyNDg4NzY2fQ.ggR1p02sGSRYgjCceQO_M2FWJ2XGrF2Yn5L67hmCiMM',
+          },
+        })
+        setContent(response.data[0])
+        console.log(response)
+      } catch (e) {
+        console.log(e)
+      }
+    }
+    getRandomContent()
+    console.log(content)
+  }, [type])
+
   return (
     <div className='featured'>
       {type && (
@@ -27,14 +49,11 @@ function Featured({ type }) {
           </select>
         </div>
       )}
-      <img src={require('../../Assets/Images/marvel.jpg')} className='background-img' alt='' />
+      <img src={content.img} className='background-img' alt='' />
 
       <div className='info'>
-        <img src={require('../../Assets/Images/marvel.jpg')} className='featured-img' alt='movie' />
-        <span className='featured-description'>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores, autem ex accusantium magni tenetur incidunt quasi nostrum repellendus
-          voluptatem omnis velit voluptatibus est aspernatur laboriosam odio fuga aliquam vel blanditiis.
-        </span>
+        <img src={content.imgTitle} className='featured-img' alt='movie' />
+        <span className='featured-description'>{content.description}</span>
         <div className='buttons'>
           <button className='play'>
             <PlayArrow />
