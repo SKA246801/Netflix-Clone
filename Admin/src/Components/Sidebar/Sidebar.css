@@ -1,0 +1,83 @@
+.sidebar {
+  flex: 1;
+  border-right: 0.5px solid lightgray;
+  min-height: 100vh;
+}
+
+.top {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: rgb(5, 92, 75);
+}
+
+hr {
+  height: 0;
+  border: 0.5px solid lightgray;
+}
+
+.center {
+  padding-left: 10px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  font-size: 10px;
+  font-weight: bold;
+  color: #999;
+  margin: 15px 0 5px 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  cursor: pointer;
+}
+
+li:hover {
+  background-color: rgb(128, 222, 200);
+}
+
+.icon {
+  font-size: 18px;
+  color: rgb(5, 92, 75);
+}
+
+.sidebarSubTitles {
+  font-size: 14px;
+  color: rgb(139, 137, 137);
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.colorOption {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 1px solid rgb(5, 92, 75);
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.firstColor {
+  background-color: whitesmoke;
+}
+
+.secondColor {
+  background-color: #333;
+}

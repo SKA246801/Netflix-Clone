@@ -1,0 +1,63 @@
+.navbar {
+  width: 100%;
+  height: 50px;
+  color: #555;
+}
+
+.navWrapper {
+  display: flex;
+  height: 100%;
+  padding: 0 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  border: 0.5px solid lightgray;
+  padding: 3px;
+}
+
+.search > input {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+}
+
+.iconContainer {
+  position: relative;
+  cursor: pointer;
+  margin-right: 13px;
+  display: flex;
+  align-items: center;
+}
+
+.iconBadge {
+  width: 13px;
+  height: 13px;
+  font-size: 10px;
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar {
+  object-fit: contain;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 13px;
+}

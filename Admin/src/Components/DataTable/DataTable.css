@@ -1,0 +1,77 @@
+.dataTable {
+  height: 500px;
+  padding: 20px;
+}
+
+.dataTableTitle {
+  width: 100%;
+  font-size: 24px;
+  color: gray;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.createUserLink {
+  text-decoration: none;
+  color: green;
+  font-size: 17px;
+  border: 1px solid green;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cellWithImg {
+  display: flex;
+  align-items: center;
+}
+
+.cellImg {
+  width: 40px;
+  object-fit: contain;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.cellWithStatus {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.active {
+  color: green;
+  background-color: rgba(0, 128, 0, 0.114);
+}
+
+.pending {
+  color: goldenrod;
+  background-color: rgba(218, 165, 32, 0.114);
+}
+
+.passive {
+  color: crimson;
+  background-color: rgba(220, 20, 60, 0.114);
+}
+
+.cellAction {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.viewButton {
+  padding: 2px 5px;
+  border-radius: 5px;
+  color: darkblue;
+  border: 1px solid rgba(0, 0, 139, 0.701);
+  cursor: pointer;
+}
+.deleteButton {
+  padding: 2px 5px;
+  border-radius: 5px;
+  color: crimson;
+  border: 1px solid rgba(220, 20, 60, 0.705);
+  cursor: pointer;
+}

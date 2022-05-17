@@ -1,0 +1,51 @@
+.widget {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  padding: 10px;
+  box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+  border-radius: 10px;
+  height: 100px;
+}
+
+.left,
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.widgetTitle {
+  font-weight: bold;
+  font-size: 14px;
+  color: rgb(150, 150, 150);
+}
+
+.widgetCounter {
+  font-size: 28px;
+}
+
+.widgetLink {
+  font-size: 13px;
+  border-bottom: 1px solid gray;
+}
+
+.percentage {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.positive {
+  color: green;
+}
+
+.negative {
+  color: red;
+}
+
+.widgetIcon {
+  padding: 5px;
+  border-radius: 5px;
+  align-self: flex-end;
+}
