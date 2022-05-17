@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
+import axios from 'axios'
 import Chart from '../../Components/Chart/Chart'
 import Featured from '../../Components/Featured/Featured'
 import Navbar from '../../Components/Navbar/Navbar'
@@ -8,6 +9,30 @@ import Widget from '../../Components/Widget/Widget'
 import './Home.css'
 
 function Home() {
+  const MONTHS = useMemo(() => ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], [])
+
+  const [userStats, setUserStats] = useState([])
+
+  useEffect(() => {
+    const getStats = async () => {
+      try {
+        const response = await axios.get('/users/stats', {
+          headers: {
+            token:
+              'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyN2QxYmIxODMzNGUxZGRhZWQxZWRkNSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MjgyMDIwMywiZXhwIjoxNjUyODI3NDAzfQ.zZzYs9iseqBNV6CdPiPA2rfjVxaqZxSGHNj02JRF0OQ',
+          },
+        })
+        const stats = response.data.sort((a, b) => {
+          return a._id - b._id
+        })
+        stats.map(item => setUserStats(prev => [...prev, { name: MONTHS[item._id - 1], 'New User': item.total }]))
+      } catch (e) {
+        console.log(e)
+      }
+    }
+    getStats()
+  }, [])
+
   return (
     <div className='home'>
       <Sidebar />
@@ -21,10 +46,10 @@ function Home() {
         </div>
         <div className='charts'>
           <Featured />
-          <Chart title='Last 6 Months (Revenue)' />
+          <Chart title='New Users in the Last Year' data={userStats} dataKey='New User' />
         </div>
         <div className='listContainer'>
-          <div className='listTitle'>Latest Transactions</div>
+          <div className='listTitle'>Latest Users</div>
           <Table />
         </div>
       </div>

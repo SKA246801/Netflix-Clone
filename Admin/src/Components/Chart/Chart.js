@@ -2,16 +2,7 @@ import React from 'react'
 import './Chart.css'
 import { AreaChart, Area, XAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
-const data = [
-  { name: 'January', Total: 1300 },
-  { name: 'February', Total: 2000 },
-  { name: 'March', Total: 1500 },
-  { name: 'April', Total: 1000 },
-  { name: 'May', Total: 1400 },
-  { name: 'June', Total: 2500 },
-]
-
-function Chart({ title }) {
+function Chart({ title, data, dataKey }) {
   return (
     <div className='chart'>
       <div className='chartTitle'>{title}</div>
@@ -26,7 +17,7 @@ function Chart({ title }) {
           <XAxis dataKey='name' stroke='gray' />
           <CartesianGrid strokeDasharray='3 3' className='chartGrid' />
           <Tooltip />
-          <Area type='monotone' dataKey='Total' stroke='rgb(58, 179, 58)' fillOpacity={1} fill='url(#total)' />
+          <Area type='monotone' dataKey={dataKey} stroke='rgb(58, 179, 58)' fillOpacity={1} fill='url(#total)' />
         </AreaChart>
       </ResponsiveContainer>
     </div>
