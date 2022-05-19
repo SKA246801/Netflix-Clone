@@ -20,13 +20,13 @@ function App() {
             <Route index element={<Home />} />
             <Route path='login' element={<Login />} />
             <Route path='users'>
-              <Route index element={<List />} />
+              <Route index element={<List type='Users' />} />
               <Route path=':userId' element={<Single />} />
               <Route path='create' element={<Create inputs={userInputs} title='Add New User' />} />
             </Route>
-            <Route path='products'>
-              <Route index element={<List />} />
-              <Route path=':productId' element={<Single />} />
+            <Route path='movies'>
+              <Route index element={<List type='Movies' />} />
+              <Route path=':movieId' element={<Single />} />
               <Route path='create' element={<Create inputs={productInputs} title='Add New Product' />} />
             </Route>
           </Route>

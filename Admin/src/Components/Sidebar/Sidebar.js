@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 import DashboardIcon from '@mui/icons-material/Dashboard'
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline'
-import StoreIcon from '@mui/icons-material/Store'
+import PlayCircleOutlined from '@mui/icons-material/PlayCircleOutlined'
 import CreditCardIcon from '@mui/icons-material/CreditCard'
 import LocalShippingIcon from '@mui/icons-material/LocalShipping'
 import BarChartIcon from '@mui/icons-material/BarChart'
@@ -30,10 +30,12 @@ function Sidebar() {
       <div className='center'>
         <ul>
           <p className='title'>MAIN</p>
-          <li>
-            <DashboardIcon className='icon' />
-            <span className='sidebarSubTitles'>Dashboard</span>
-          </li>
+          <Link to='/' style={{ textDecoration: 'none' }}>
+            <li>
+              <DashboardIcon className='icon' />
+              <span className='sidebarSubTitles'>Dashboard</span>
+            </li>
+          </Link>
           <p className='title'>LISTS</p>
           <Link to='/users' style={{ textDecoration: 'none' }}>
             <li>
@@ -41,10 +43,10 @@ function Sidebar() {
               <span className='sidebarSubTitles'>Users</span>
             </li>
           </Link>
-          <Link to='/products' style={{ textDecoration: 'none' }}>
+          <Link to='/movies' style={{ textDecoration: 'none' }}>
             <li>
-              <StoreIcon className='icon' />
-              <span className='sidebarSubTitles'>Products</span>
+              <PlayCircleOutlined className='icon' />
+              <span className='sidebarSubTitles'>Movies</span>
             </li>
           </Link>
           <li>
