@@ -7,7 +7,7 @@ import List from './Pages/List/List'
 import Single from './Pages/Single/Single'
 import Create from './Pages/Create/Create'
 import { productInputs, userInputs } from './Assets/Utils/FormSource'
-import { DarkModeContext } from './Assets/Context/DarkModeContext'
+import { DarkModeContext } from './Assets/Context/Dark/DarkModeContext'
 
 function App() {
   const { darkMode } = useContext(DarkModeContext)

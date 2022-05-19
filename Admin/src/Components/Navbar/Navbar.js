@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import './Navbar.css'
-import { DarkModeContext } from '../../Assets/Context/DarkModeContext'
+import { DarkModeContext } from '../../Assets/Context/Dark/DarkModeContext'
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone'
 import LanguageIcon from '@mui/icons-material/Language'
 import SettingsIcon from '@mui/icons-material/Settings'

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { DarkModeContext } from '../../Assets/Context/DarkModeContext'
+import { DarkModeContext } from '../../Assets/Context/Dark/DarkModeContext'
 import './Sidebar.css'
 import { Link } from 'react-router-dom'
 
