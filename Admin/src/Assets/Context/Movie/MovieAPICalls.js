@@ -1,4 +1,4 @@
-import { getMoviesFailure, getMoviesStart, getMoviesSuccess } from './MovieActions'
+import { deleteMovieFailure, deleteMovieStart, deleteMovieSuccess, getMoviesFailure, getMoviesStart, getMoviesSuccess } from './MovieActions'
 import axios from 'axios'
 
 export const getMovies = async movieDispatch => {
@@ -12,5 +12,19 @@ export const getMovies = async movieDispatch => {
     movieDispatch(getMoviesSuccess(response.data))
   } catch (e) {
     movieDispatch(getMoviesFailure())
+  }
+}
+
+export const deleteMovie = async (id, movieDispatch) => {
+  movieDispatch(deleteMovieStart())
+  try {
+    await axios.delete(`/movies/${id}`, {
+      headers: {
+        token: 'Bearer ' + JSON.parse(localStorage.getItem('user')).accessToken,
+      },
+    })
+    movieDispatch(deleteMovieSuccess(id))
+  } catch (e) {
+    movieDispatch(deleteMovieFailure())
   }
 }

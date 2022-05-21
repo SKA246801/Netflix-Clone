@@ -1,17 +1,22 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './DataTable.css'
 import { DataGrid } from '@mui/x-data-grid'
-import { columns, rows } from '../../Assets/Utils/TestData'
+import { userColumns, rows, movieColumns } from '../../Assets/Utils/TestData'
 import { Link } from 'react-router-dom'
 import { MovieContext } from '../../Assets/Context/Movie/MovieContext'
+import { deleteMovie, getMovies } from '../../Assets/Context/Movie/MovieAPICalls'
 
 function DataTable({ type }) {
   const [userData, setData] = useState(rows)
-  const handleDelete = id => {
-    setData(userData.filter(item => item.id !== id))
-  }
-
   const { movies, movieDispatch } = useContext(MovieContext)
+
+  useEffect(() => {
+    getMovies(movieDispatch)
+  }, [movieDispatch])
+  const handleDelete = id => {
+    deleteMovie(id, movieDispatch)
+    window.location.reload()
+  }
 
   const actionColumn = [
     {
@@ -21,10 +26,18 @@ function DataTable({ type }) {
       renderCell: params => {
         return (
           <div className='cellAction'>
-            <Link to='/users/test' style={{ textDecoration: 'none' }}>
-              <div className='viewButton'>View</div>
-            </Link>
-            <div className='deleteButton' onClick={() => handleDelete(params.row.id)}>
+            {params.row.genre ? (
+              <Link to={`/movies/${params.row._id}`} style={{ textDecoration: 'none' }}>
+                {' '}
+                <div className='viewButton'>View</div>
+              </Link>
+            ) : (
+              <Link to='/users/test' style={{ textDecoration: 'none' }}>
+                <div className='viewButton'>View</div>
+              </Link>
+            )}
+
+            <div className='deleteButton' onClick={() => handleDelete(params.row._id)}>
               Delete
             </div>
           </div>
@@ -45,7 +58,7 @@ function DataTable({ type }) {
           <DataGrid
             className='dataGrid'
             rows={userData}
-            columns={columns.concat(actionColumn)}
+            columns={userColumns.concat(actionColumn)}
             pageSize={10}
             rowsPerPageOptions={[10]}
             checkboxSelection
@@ -62,11 +75,12 @@ function DataTable({ type }) {
           </div>
           <DataGrid
             className='dataGrid'
-            rows={userData}
-            columns={columns.concat(actionColumn)}
+            rows={movies}
+            columns={movieColumns.concat(actionColumn)}
             pageSize={10}
             rowsPerPageOptions={[10]}
             checkboxSelection
+            getRowId={row => row._id}
           />
         </div>
       )}

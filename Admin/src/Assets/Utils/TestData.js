@@ -1,4 +1,4 @@
-export const columns = [
+export const userColumns = [
   { field: 'id', headerName: 'ID', width: 70 },
   {
     field: 'user',
@@ -23,6 +23,27 @@ export const columns = [
       return <div className={`cellWithStatus ${params.row.status}`}>{params.row.status}</div>
     },
   },
+]
+export const movieColumns = [
+  { field: '_id', headerName: 'ID', width: 70 },
+  {
+    field: 'movie',
+    headerName: 'Movie',
+    width: 250,
+    renderCell: params => {
+      return (
+        <div className='cellWithImg'>
+          {/* <img className='cellImg' src={require(`../Images/${params.row.img}`)} alt='avatar' /> */}
+          <img className='cellImg' src={params.row.img} alt='avatar' />
+          {params.row.title}
+        </div>
+      )
+    },
+  },
+  { field: 'genre', headerName: 'Genre', width: 150 },
+  { field: 'year', headerName: 'Year', width: 100 },
+  { field: 'ageLimit', headerName: 'Age Requirement', width: 150 },
+  { field: 'isSeries', headerName: 'Series', width: 100 },
 ]
 
 export const rows = [

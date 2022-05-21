@@ -18,7 +18,7 @@ function TableComponent({ type }) {
         const response = await axios.get('/users?new=true', {
           headers: {
             token:
-              'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyN2QxYmIxODMzNGUxZGRhZWQxZWRkNSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MzA5MTg2NywiZXhwIjoxNjUzMDk5MDY3fQ.goYKDPwa-c0VtW50qeLyCm3KkWPzXEgNaecfCCd70pY',
+              'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyN2QxYmIxODMzNGUxZGRhZWQxZWRkNSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MzE3MDA4MiwiZXhwIjoxNjUzMTc3MjgyfQ.FlCCT3cLDYZszKw_ozwxKRK6f-dtv2KDzG1cVcUmQ_E',
           },
         })
         setNewUsers(response.data)
