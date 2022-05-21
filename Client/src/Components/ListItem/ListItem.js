@@ -15,7 +15,7 @@ function ListItem({ index, item }) {
         const response = await axios.get(`/movies/find/${item}`, {
           headers: {
             token:
-              'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyN2QxYmIxODMzNGUxZGRhZWQxZWRkNSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MzAwMTMyOSwiZXhwIjoxNjUzMDA4NTI5fQ.rdTDQqJzti1nVUEqm-S-6hueo5bd8MbCCrsnpiBAsVw',
+              'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyN2QxYmIxODMzNGUxZGRhZWQxZWRkNSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MzA5MTg2NywiZXhwIjoxNjUzMDk5MDY3fQ.goYKDPwa-c0VtW50qeLyCm3KkWPzXEgNaecfCCd70pY',
           },
         })
         setMovie(response.data)
