@@ -27,7 +27,7 @@ function DataTable({ type }) {
         return (
           <div className='cellAction'>
             {params.row.genre ? (
-              <Link to={`/movies/${params.row._id}`} style={{ textDecoration: 'none' }}>
+              <Link to={`/movies/${params.row._id}`} state={params.row} style={{ textDecoration: 'none' }}>
                 {' '}
                 <div className='viewButton'>View</div>
               </Link>
@@ -36,7 +36,6 @@ function DataTable({ type }) {
                 <div className='viewButton'>View</div>
               </Link>
             )}
-
             <div className='deleteButton' onClick={() => handleDelete(params.row._id)}>
               Delete
             </div>

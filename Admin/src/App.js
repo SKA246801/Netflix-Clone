@@ -6,7 +6,7 @@ import Login from './Pages/Login/Login'
 import List from './Pages/List/List'
 import Single from './Pages/Single/Single'
 import Create from './Pages/Create/Create'
-import { productInputs, userInputs } from './Assets/Utils/FormSource'
+import { movieInputs, userInputs } from './Assets/Utils/FormSource'
 import { DarkModeContext } from './Assets/Context/Dark/DarkModeContext'
 import { AuthContext } from './Assets/Context/Auth/AuthContext'
 
@@ -23,13 +23,13 @@ function App() {
             <Route path='login' element={user ? <Navigate to='/' /> : <Login />} />
             <Route path='users'>
               <Route index element={user ? <List type='Users' /> : <Navigate to='/login' />} />
-              <Route path=':userId' element={user ? <Single /> : <Navigate to='/login' />} />
+              <Route path=':userId' element={user ? <Single type='user' /> : <Navigate to='/login' />} />
               <Route path='create' element={user ? <Create inputs={userInputs} title='Add New User' /> : <Navigate to='/login' />} />
             </Route>
             <Route path='movies'>
               <Route index element={user ? <List type='Movies' /> : <Navigate to='/login' />} />
-              <Route path=':movieId' element={user ? <Single /> : <Navigate to='/login' />} />
-              <Route path='create' element={user ? <Create inputs={productInputs} title='Add New Product' /> : <Navigate to='/login' />} />
+              <Route path=':movieId' element={user ? <Single inputs={movieInputs} type='movie' /> : <Navigate to='/login' />} />
+              <Route path='create' element={user ? <Create inputs={movieInputs} title='Add New Movie' /> : <Navigate to='/login' />} />
             </Route>
           </Route>
         </Routes>

@@ -42,35 +42,35 @@ export const userInputs = [
   },
 ]
 
-export const productInputs = [
+export const movieInputs = [
   {
     id: 1,
     label: 'Title',
     type: 'text',
-    placeholder: 'Galaxy S21',
+    placeholder: 'Avengers Endgame',
   },
   {
     id: 2,
-    label: 'Description',
+    label: 'Year',
     type: 'text',
-    placeholder: 'Description',
+    placeholder: '2019',
   },
   {
     id: 3,
-    label: 'Category',
+    label: 'Genre',
     type: 'text',
-    placeholder: 'Phone',
+    placeholder: 'Action',
   },
   {
     id: 4,
-    label: 'Price',
+    label: 'Age Requirement',
     type: 'text',
-    placeholder: '800',
+    placeholder: '13',
   },
   {
     id: 5,
-    label: 'Stock',
+    label: 'Trailer',
     type: 'text',
-    placeholder: 'in stock',
+    placeholder: 'https://www.youtube.com/embed/TcMBFSGVi1c',
   },
 ]
