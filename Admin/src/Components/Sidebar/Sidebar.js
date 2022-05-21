@@ -15,9 +15,12 @@ import PsychologyIcon from '@mui/icons-material/Psychology'
 import SettingsIcon from '@mui/icons-material/Settings'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import LogoutIcon from '@mui/icons-material/Logout'
+import { AuthContext } from '../../Assets/Context/Auth/AuthContext'
+import { logout } from '../../Assets/Context/Auth/AuthActions'
 
 function Sidebar() {
   const { dispatch } = useContext(DarkModeContext)
+  const { authDispatch } = useContext(AuthContext)
 
   return (
     <div className='sidebar'>
@@ -86,7 +89,15 @@ function Sidebar() {
           </li>
           <li>
             <LogoutIcon className='icon' />
-            <span className='sidebarSubTitles'>Logout</span>
+            <span
+              className='sidebarSubTitles'
+              onClick={() => {
+                authDispatch(logout())
+                window.location.reload()
+              }}
+            >
+              Logout
+            </span>
           </li>
         </ul>
       </div>

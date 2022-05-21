@@ -8,3 +8,7 @@ export const loginSuccess = user => ({
 export const loginFailure = err => ({
   type: 'LOGIN_FAILURE',
 })
+
+export const logout = () => ({
+  type: 'LOGOUT',
+})
