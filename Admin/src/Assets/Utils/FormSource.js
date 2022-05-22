@@ -44,33 +44,59 @@ export const userInputs = [
 
 export const movieInputs = [
   {
-    id: 1,
-    label: 'Title',
-    type: 'text',
-    placeholder: 'Avengers Endgame',
-  },
-  {
-    id: 2,
-    label: 'Year',
-    type: 'text',
-    placeholder: '2019',
-  },
-  {
     id: 3,
     label: 'Genre',
     type: 'text',
     placeholder: 'Action',
+    name: 'genre',
+  },
+  {
+    id: 1,
+    label: 'Title',
+    type: 'text',
+    placeholder: 'Avengers Endgame',
+    name: 'title',
   },
   {
     id: 4,
     label: 'Age Requirement',
     type: 'text',
     placeholder: '13',
+    name: 'ageLimit',
+  },
+  {
+    id: 6,
+    label: 'Description',
+    type: 'text',
+    placeholder: 'Thanos must be stopped...',
+    name: 'description',
   },
   {
     id: 5,
+    label: 'Duration',
+    type: 'text',
+    placeholder: '3h 2min',
+    name: 'duration',
+  },
+  {
+    id: 2,
+    label: 'Year',
+    type: 'text',
+    placeholder: '2019',
+    name: 'year',
+  },
+  {
+    id: 7,
     label: 'Trailer',
     type: 'text',
     placeholder: 'https://www.youtube.com/embed/TcMBFSGVi1c',
+    name: 'trailer',
+  },
+  {
+    id: 8,
+    label: 'Video',
+    type: 'text',
+    placeholder: 'https://www.youtube.com/embed/TcMBFSGVi1c',
+    name: 'video',
   },
 ]

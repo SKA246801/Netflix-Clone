@@ -47,6 +47,12 @@
   width: 40%;
 }
 
+.select {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .formInput > label {
   display: flex;
   align-items: center;

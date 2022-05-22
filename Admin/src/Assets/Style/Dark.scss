@@ -26,9 +26,11 @@
       color: #999;
     }
   }
+
   hr {
     border-color: #333;
   }
+
   ul {
     li {
       &:hover {
@@ -56,5 +58,12 @@
   }
   input {
     background-color: transparent;
+  }
+  select {
+    background-color: transparent;
+    color: gray;
+  }
+  select option {
+    background-color: #111;
   }
 }

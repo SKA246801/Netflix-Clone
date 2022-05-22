@@ -25,11 +25,11 @@ export const userColumns = [
   },
 ]
 export const movieColumns = [
-  { field: '_id', headerName: 'ID', width: 70 },
+  { field: '_id', headerName: 'ID', width: 130 },
   {
     field: 'movie',
     headerName: 'Movie',
-    width: 250,
+    width: 200,
     renderCell: params => {
       return (
         <div className='cellWithImg'>

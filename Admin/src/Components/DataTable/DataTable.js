@@ -22,7 +22,7 @@ function DataTable({ type }) {
     {
       field: 'action',
       headerName: 'Action',
-      width: 200,
+      width: 180,
       renderCell: params => {
         return (
           <div className='cellAction'>
