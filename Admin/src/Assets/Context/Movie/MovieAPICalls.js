@@ -42,7 +42,7 @@ export const deleteMovie = async (id, movieDispatch) => {
 export const createMovie = async (movie, movieDispatch) => {
   movieDispatch(createMovieStart())
   try {
-    const response = await axios.posts('/movies/', movie, {
+    const response = await axios.post('/movies/', movie, {
       headers: {
         token: 'Bearer ' + JSON.parse(localStorage.getItem('user')).accessToken,
       },

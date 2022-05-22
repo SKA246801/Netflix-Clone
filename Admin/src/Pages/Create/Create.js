@@ -1,18 +1,20 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './Create.css'
 import Navbar from '../../Components/Navbar/Navbar'
 import Sidebar from '../../Components/Sidebar/Sidebar'
 import DriveFolderUploadOutlined from '@mui/icons-material/DriveFolderUploadOutlined'
 import storage from '../../Firebase'
+import { createMovie } from '../../Assets/Context/Movie/MovieAPICalls'
+import { MovieContext } from '../../Assets/Context/Movie/MovieContext'
 
 function Create({ inputs, title }) {
   const [file, setFile] = useState('')
-
   const [movie, setMovie] = useState({})
   const [img, setImg] = useState(null)
   const [imgTitle, setImgTitle] = useState(null)
   const [imgSmall, setImgSmall] = useState(null)
   const [uploaded, setUploaded] = useState(0)
+  const { movieDispatch } = useContext(MovieContext)
 
   const handleChange = e => {
     const value = e.target.value
@@ -22,7 +24,7 @@ function Create({ inputs, title }) {
   const upload = items => {
     items.forEach(item => {
       const fileName = new Date().getTime() + item.label + item.file.name
-      const uploadTask = storage.ref(`/items/${fileName}`).put(item)
+      const uploadTask = storage.ref(`/items/${fileName}`).put(item.file)
       uploadTask.on(
         'state_changed',
         snapshot => {
@@ -62,6 +64,7 @@ function Create({ inputs, title }) {
 
   const handleSubmit = e => {
     e.preventDefault()
+    createMovie(movie, movieDispatch)
   }
 
   console.log(movie)
