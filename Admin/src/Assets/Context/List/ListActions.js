@@ -30,3 +30,14 @@ export const createListSuccess = list => ({
 export const createListFailure = () => ({
   type: 'CREATE_LIST_FAILURE',
 })
+
+export const updateListStart = () => ({
+  type: 'UPDATE_LIST_START',
+})
+export const updateListSuccess = list => ({
+  type: 'UPDATE_LIST_SUCCESS',
+  payload: list,
+})
+export const updateListFailure = () => ({
+  type: 'UPDATE_LIST_FAILURE',
+})
