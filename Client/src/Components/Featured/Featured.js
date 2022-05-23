@@ -8,6 +8,7 @@ function Featured({ type, setGenre }) {
   const [content, setContent] = useState({})
 
   useEffect(() => {
+    setGenre(null)
     const getRandomContent = async () => {
       try {
         const response = await axios.get(`movies/random${type ? `?type=${type}` : ''}`, {
