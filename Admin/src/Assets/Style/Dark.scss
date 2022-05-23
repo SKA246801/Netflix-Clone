@@ -63,6 +63,12 @@
     background-color: transparent;
     color: gray;
   }
+
+  select option:checked {
+    color: white;
+    background-color: teal;
+  }
+
   select option {
     background-color: #111;
   }

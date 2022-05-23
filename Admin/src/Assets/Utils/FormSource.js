@@ -100,3 +100,19 @@ export const movieInputs = [
     name: 'video',
   },
 ]
+export const listInputs = [
+  {
+    id: 1,
+    label: 'Title',
+    type: 'text',
+    placeholder: 'Avengers Endgame',
+    name: 'title',
+  },
+  {
+    id: 2,
+    label: 'Genre',
+    type: 'text',
+    placeholder: 'Action',
+    name: 'genre',
+  },
+]

@@ -52,10 +52,10 @@ export const listColumns = [
   {
     field: 'title',
     headerName: 'Title',
-    width: 200,
+    width: 250,
   },
   { field: 'genre', headerName: 'Genre', width: 150 },
-  { field: 'type', headerName: 'Type', width: 100 },
+  { field: 'type', headerName: 'Type', width: 150 },
 ]
 
 export const rows = [

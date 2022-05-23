@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { getListsFailure, getListsStart, getListsSuccess } from './ListActions'
+import { deleteListFailure, deleteListStart, deleteListSuccess, getListsFailure, getListsStart, getListsSuccess } from './ListActions'
 
 export const getLists = async listDispatch => {
   listDispatch(getListsStart())
@@ -12,5 +12,19 @@ export const getLists = async listDispatch => {
     listDispatch(getListsSuccess(response.data))
   } catch (e) {
     listDispatch(getListsFailure())
+  }
+}
+
+export const deleteList = async (id, listDispatch) => {
+  listDispatch(deleteListStart())
+  try {
+    await axios.delete(`/lists/${id}`, {
+      headers: {
+        token: 'Bearer ' + JSON.parse(localStorage.getItem('user')).accessToken,
+      },
+    })
+    listDispatch(deleteListSuccess(id))
+  } catch (e) {
+    listDispatch(deleteListFailure())
   }
 }

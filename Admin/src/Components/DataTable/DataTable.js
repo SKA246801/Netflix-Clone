@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './DataTable.css'
 import { DataGrid } from '@mui/x-data-grid'
-import { userColumns, rows, movieColumns, listColumns } from '../../Assets/Utils/TestData'
+import { userColumns, rows, movieColumns, listColumns } from '../../Assets/Utils/ColumnData'
 import { Link } from 'react-router-dom'
 import { MovieContext } from '../../Assets/Context/Movie/MovieContext'
 import { ListContext } from '../../Assets/Context/List/ListContext'
 import { deleteMovie, getMovies } from '../../Assets/Context/Movie/MovieAPICalls'
-import { getLists } from '../../Assets/Context/List/ListAPICalls'
+import { deleteList, getLists } from '../../Assets/Context/List/ListAPICalls'
 
 function DataTable({ type }) {
   const [userData, setData] = useState(rows)
@@ -21,8 +21,13 @@ function DataTable({ type }) {
     getLists(listDispatch)
   }, [listDispatch])
 
-  const handleDelete = id => {
+  const handleMovieDelete = id => {
     deleteMovie(id, movieDispatch)
+    window.location.reload()
+  }
+
+  const handleListDelete = id => {
+    deleteList(id, listDispatch)
     window.location.reload()
   }
 
@@ -35,22 +40,32 @@ function DataTable({ type }) {
         return (
           <div className='cellAction'>
             {params.row.description ? (
-              <Link to={`/movies/${params.row._id}`} state={params.row} style={{ textDecoration: 'none' }}>
-                {' '}
-                <div className='viewButton'>View</div>
-              </Link>
+              <>
+                <Link to={`/movies/${params.row._id}`} state={params.row} style={{ textDecoration: 'none' }}>
+                  {' '}
+                  <div className='viewButton'>View</div>
+                </Link>
+                <div className='deleteButton' onClick={() => handleMovieDelete(params.row._id)}>
+                  Delete
+                </div>
+              </>
             ) : params.row.username ? (
-              <Link to='/users/test' style={{ textDecoration: 'none' }}>
-                <div className='viewButton'>View</div>
-              </Link>
+              <>
+                <Link to='/users/test' style={{ textDecoration: 'none' }}>
+                  <div className='viewButton'>View</div>
+                </Link>
+                <div className='deleteButton'>Delete</div>
+              </>
             ) : (
-              <Link to={`/lists/${params.row._id}`} state={params.row} style={{ textDecoration: 'none' }}>
-                <div className='viewButton'>View</div>
-              </Link>
+              <>
+                <Link to={`/lists/${params.row._id}`} state={params.row} style={{ textDecoration: 'none' }}>
+                  <div className='viewButton'>View</div>
+                </Link>
+                <div className='deleteButton' onClick={() => handleListDelete(params.row._id)}>
+                  Delete
+                </div>
+              </>
             )}
-            <div className='deleteButton' onClick={() => handleDelete(params.row._id)}>
-              Delete
-            </div>
           </div>
         )
       },
@@ -100,7 +115,7 @@ function DataTable({ type }) {
         <div className='dataTable'>
           <div className='dataTableTitle'>
             Current Lists
-            <Link to='/movies/create' className='createUserLink'>
+            <Link to='/lists/create' className='createUserLink'>
               Add New
             </Link>
           </div>

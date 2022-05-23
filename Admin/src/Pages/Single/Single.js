@@ -172,7 +172,7 @@ function Single({ type }) {
                     <input type='text' placeholder={list.genre} />
                   </div>
                   <div className='formInput'>
-                    <label>Age Requirement</label>
+                    <label>Type</label>
                     <input type='text' placeholder={list.type} />
                   </div>
                   <button>Update</button>
