@@ -4,20 +4,28 @@ import { DataGrid } from '@mui/x-data-grid'
 import { userColumns, rows, movieColumns, listColumns } from '../../Assets/Utils/TestData'
 import { Link } from 'react-router-dom'
 import { MovieContext } from '../../Assets/Context/Movie/MovieContext'
+import { ListContext } from '../../Assets/Context/List/ListContext'
 import { deleteMovie, getMovies } from '../../Assets/Context/Movie/MovieAPICalls'
+import { getLists } from '../../Assets/Context/List/ListAPICalls'
 
 function DataTable({ type }) {
   const [userData, setData] = useState(rows)
   const { movies, movieDispatch } = useContext(MovieContext)
+  const { lists, listDispatch } = useContext(ListContext)
 
   useEffect(() => {
     getMovies(movieDispatch)
   }, [movieDispatch])
+
+  useEffect(() => {
+    getLists(listDispatch)
+  }, [listDispatch])
+
   const handleDelete = id => {
     deleteMovie(id, movieDispatch)
     window.location.reload()
   }
-  console.log(userData)
+
   const actionColumn = [
     {
       field: 'action',
@@ -36,7 +44,7 @@ function DataTable({ type }) {
                 <div className='viewButton'>View</div>
               </Link>
             ) : (
-              <Link to={`/lists/${params.row._id}`} style={{ textDecoration: 'none' }}>
+              <Link to={`/lists/${params.row._id}`} state={params.row} style={{ textDecoration: 'none' }}>
                 <div className='viewButton'>View</div>
               </Link>
             )}
@@ -48,6 +56,7 @@ function DataTable({ type }) {
       },
     },
   ]
+
   return (
     <>
       {type === 'Users' && (
@@ -97,7 +106,7 @@ function DataTable({ type }) {
           </div>
           <DataGrid
             className='dataGrid'
-            rows={movies}
+            rows={lists}
             columns={listColumns.concat(actionColumn)}
             pageSize={10}
             rowsPerPageOptions={[10]}

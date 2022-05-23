@@ -12,6 +12,9 @@ function Single({ type }) {
   const movie = location.state
   const [file, setFile] = useState('')
 
+  const list = location.state
+  console.log(location)
+
   return (
     <div className='single'>
       <Sidebar />
@@ -122,6 +125,55 @@ function Single({ type }) {
                   <div className='formInput'>
                     <label>Trailer</label>
                     <input type='text' placeholder={movie.trailer} />
+                  </div>
+                  <button>Update</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {type === 'list' && (
+        <div className='singleContainer'>
+          <Navbar />
+          <div className='singleTop'>
+            <div className='singleLeft'>
+              <h1 className='singleTitle'>Information</h1>
+              <div className='singleItem'>
+                <div className='details'>
+                  <h1 className='singleItemTitle'>{list.title}</h1>
+                  <div className='detailItem'>
+                    <span className='itemKey'>ID:</span>
+                    <span className='itemValue'>{list._id}</span>
+                  </div>
+                  <div className='detailItem'>
+                    <span className='itemKey'>Genre:</span>
+                    <span className='itemValue'>{list.genre}</span>
+                  </div>
+                  <div className='detailItem'>
+                    <span className='itemKey'>Type:</span>
+                    <span className='itemValue'>{list.type}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='editContainer'>
+            <div className='editBottom'>
+              <div className='editLeft'></div>
+              <div className='editRight'>
+                <form className='editForm'>
+                  <div className='formInput'>
+                    <label>Title</label>
+                    <input type='text' placeholder={list.title} />
+                  </div>
+                  <div className='formInput'>
+                    <label>Genre</label>
+                    <input type='text' placeholder={list.genre} />
+                  </div>
+                  <div className='formInput'>
+                    <label>Age Requirement</label>
+                    <input type='text' placeholder={list.type} />
                   </div>
                   <button>Update</button>
                 </form>
