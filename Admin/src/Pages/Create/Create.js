@@ -6,6 +6,7 @@ import DriveFolderUploadOutlined from '@mui/icons-material/DriveFolderUploadOutl
 import storage from '../../Firebase'
 import { createMovie } from '../../Assets/Context/Movie/MovieAPICalls'
 import { MovieContext } from '../../Assets/Context/Movie/MovieContext'
+import { useNavigate } from 'react-router-dom'
 
 function Create({ inputs, title }) {
   const [file, setFile] = useState('')
@@ -15,6 +16,7 @@ function Create({ inputs, title }) {
   const [imgSmall, setImgSmall] = useState(null)
   const [uploaded, setUploaded] = useState(0)
   const { movieDispatch } = useContext(MovieContext)
+  const navigate = useNavigate()
 
   const handleChange = e => {
     const value = e.target.value
@@ -29,7 +31,6 @@ function Create({ inputs, title }) {
         'state_changed',
         snapshot => {
           const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-          console.log(progress)
         },
         e => console.log(e),
         () => {
@@ -65,9 +66,8 @@ function Create({ inputs, title }) {
   const handleSubmit = e => {
     e.preventDefault()
     createMovie(movie, movieDispatch)
+    navigate('/movies')
   }
-
-  console.log(movie)
 
   return (
     <div className='create'>

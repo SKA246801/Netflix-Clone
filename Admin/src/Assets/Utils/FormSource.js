@@ -105,7 +105,7 @@ export const listInputs = [
     id: 1,
     label: 'Title',
     type: 'text',
-    placeholder: 'Avengers Endgame',
+    placeholder: 'Popular Movies',
     name: 'title',
   },
   {

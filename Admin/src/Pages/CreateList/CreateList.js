@@ -5,9 +5,12 @@ import { ListContext } from '../../Assets/Context/List/ListContext'
 import Navbar from '../../Components/Navbar/Navbar'
 import Sidebar from '../../Components/Sidebar/Sidebar'
 import { getMovies } from '../../Assets/Context/Movie/MovieAPICalls'
+import { createList } from '../../Assets/Context/List/ListAPICalls'
+import { useNavigate } from 'react-router-dom'
 
 function CreateList({ inputs }) {
   const [list, setList] = useState(null)
+  const navigate = useNavigate()
 
   const { lists, listDispatch } = useContext(ListContext)
   const { movies, movieDispatch } = useContext(MovieContext)
@@ -24,8 +27,8 @@ function CreateList({ inputs }) {
 
   const handleSubmit = e => {
     e.preventDefault()
-    console.log('sumbuigfdsa')
-    console.log(list)
+    createList(list, listDispatch)
+    navigate('/lists')
   }
 
   const handleSelect = e => {
@@ -33,7 +36,6 @@ function CreateList({ inputs }) {
     setList({ ...list, [e.target.name]: value })
   }
 
-  console.log(list)
   return (
     <div className='create'>
       <Sidebar />

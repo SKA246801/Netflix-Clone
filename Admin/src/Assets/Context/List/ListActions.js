@@ -19,3 +19,14 @@ export const deleteListSuccess = id => ({
 export const deleteListFailure = () => ({
   type: 'DELETE_LIST_FAILURE',
 })
+
+export const createListStart = () => ({
+  type: 'CREATE_LIST_START',
+})
+export const createListSuccess = list => ({
+  type: 'CREATE_LIST_SUCCESS',
+  payload: list,
+})
+export const createListFailure = () => ({
+  type: 'CREATE_LIST_FAILURE',
+})
