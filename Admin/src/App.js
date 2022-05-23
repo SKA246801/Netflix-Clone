@@ -31,6 +31,11 @@ function App() {
               <Route path=':movieId' element={user ? <Single inputs={movieInputs} type='movie' /> : <Navigate to='/login' />} />
               <Route path='create' element={user ? <Create inputs={movieInputs} title='Add New Movie' /> : <Navigate to='/login' />} />
             </Route>
+            <Route path='lists'>
+              <Route index element={user ? <List type='Lists' /> : <Navigate to='/login' />} />
+              <Route path=':listid' element={user ? <Single inputs={movieInputs} type='list' /> : <Navigate to='/login' />} />
+              <Route path='create' element={user ? <Create inputs={movieInputs} title='Add New List' /> : <Navigate to='/login' />} />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>

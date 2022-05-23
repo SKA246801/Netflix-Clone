@@ -24,6 +24,7 @@ export const userColumns = [
     },
   },
 ]
+
 export const movieColumns = [
   { field: '_id', headerName: 'ID', width: 130 },
   {
@@ -44,6 +45,17 @@ export const movieColumns = [
   { field: 'year', headerName: 'Year', width: 100 },
   { field: 'ageLimit', headerName: 'Age Requirement', width: 150 },
   { field: 'isSeries', headerName: 'Series', width: 100 },
+]
+
+export const listColumns = [
+  { field: '_id', headerName: 'ID', width: 250 },
+  {
+    field: 'title',
+    headerName: 'Title',
+    width: 200,
+  },
+  { field: 'genre', headerName: 'Genre', width: 150 },
+  { field: 'type', headerName: 'Type', width: 100 },
 ]
 
 export const rows = [

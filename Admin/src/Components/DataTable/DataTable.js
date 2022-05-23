@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './DataTable.css'
 import { DataGrid } from '@mui/x-data-grid'
-import { userColumns, rows, movieColumns } from '../../Assets/Utils/TestData'
+import { userColumns, rows, movieColumns, listColumns } from '../../Assets/Utils/TestData'
 import { Link } from 'react-router-dom'
 import { MovieContext } from '../../Assets/Context/Movie/MovieContext'
 import { deleteMovie, getMovies } from '../../Assets/Context/Movie/MovieAPICalls'
@@ -17,7 +17,7 @@ function DataTable({ type }) {
     deleteMovie(id, movieDispatch)
     window.location.reload()
   }
-
+  console.log(userData)
   const actionColumn = [
     {
       field: 'action',
@@ -26,13 +26,17 @@ function DataTable({ type }) {
       renderCell: params => {
         return (
           <div className='cellAction'>
-            {params.row.genre ? (
+            {params.row.description ? (
               <Link to={`/movies/${params.row._id}`} state={params.row} style={{ textDecoration: 'none' }}>
                 {' '}
                 <div className='viewButton'>View</div>
               </Link>
-            ) : (
+            ) : params.row.username ? (
               <Link to='/users/test' style={{ textDecoration: 'none' }}>
+                <div className='viewButton'>View</div>
+              </Link>
+            ) : (
+              <Link to={`/lists/${params.row._id}`} style={{ textDecoration: 'none' }}>
                 <div className='viewButton'>View</div>
               </Link>
             )}
@@ -76,6 +80,25 @@ function DataTable({ type }) {
             className='dataGrid'
             rows={movies}
             columns={movieColumns.concat(actionColumn)}
+            pageSize={10}
+            rowsPerPageOptions={[10]}
+            checkboxSelection
+            getRowId={row => row._id}
+          />
+        </div>
+      )}
+      {type === 'Lists' && (
+        <div className='dataTable'>
+          <div className='dataTableTitle'>
+            Current Lists
+            <Link to='/movies/create' className='createUserLink'>
+              Add New
+            </Link>
+          </div>
+          <DataGrid
+            className='dataGrid'
+            rows={movies}
+            columns={listColumns.concat(actionColumn)}
             pageSize={10}
             rowsPerPageOptions={[10]}
             checkboxSelection

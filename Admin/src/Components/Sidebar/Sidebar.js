@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import DashboardIcon from '@mui/icons-material/Dashboard'
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline'
 import PlayCircleOutlined from '@mui/icons-material/PlayCircleOutlined'
-import CreditCardIcon from '@mui/icons-material/CreditCard'
+import ListIcon from '@mui/icons-material/List'
 import LocalShippingIcon from '@mui/icons-material/LocalShipping'
 import BarChartIcon from '@mui/icons-material/BarChart'
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone'
@@ -52,10 +52,12 @@ function Sidebar() {
               <span className='sidebarSubTitles'>Movies</span>
             </li>
           </Link>
-          <li>
-            <CreditCardIcon className='icon' />
-            <span className='sidebarSubTitles'>Orders</span>
-          </li>
+          <Link to='/lists' style={{ textDecoration: 'none' }}>
+            <li>
+              <ListIcon className='icon' />
+              <span className='sidebarSubTitles'>Lists</span>
+            </li>
+          </Link>
           <li>
             <LocalShippingIcon className='icon' />
             <span className='sidebarSubTitles'>Delivery</span>

@@ -11,7 +11,6 @@ function Single({ type }) {
   const location = useLocation()
   const movie = location.state
   const [file, setFile] = useState('')
-  console.log(movie)
 
   return (
     <div className='single'>
