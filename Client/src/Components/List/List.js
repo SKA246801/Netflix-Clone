@@ -10,6 +10,7 @@ function List({ list }) {
   const [isMoved, setIsMoved] = useState(false)
 
   const listRef = useRef()
+  console.log(list)
 
   const handleClick = direction => {
     setIsMoved(true)

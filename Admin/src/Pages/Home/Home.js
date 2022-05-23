@@ -18,8 +18,7 @@ function Home() {
       try {
         const response = await axios.get('/users/stats', {
           headers: {
-            token:
-              'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyN2QxYmIxODMzNGUxZGRhZWQxZWRkNSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MzE3MDA4MiwiZXhwIjoxNjUzMTc3MjgyfQ.FlCCT3cLDYZszKw_ozwxKRK6f-dtv2KDzG1cVcUmQ_E',
+            token: 'Bearer ' + JSON.parse(localStorage.getItem('user')).accessToken,
           },
         })
         const stats = response.data.sort((a, b) => {

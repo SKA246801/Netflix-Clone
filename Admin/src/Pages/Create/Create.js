@@ -22,7 +22,7 @@ function Create({ inputs, title }) {
     const value = e.target.value
     setMovie({ ...movie, [e.target.name]: value })
   }
-
+  const [progress, setProgress] = useState(0)
   const upload = items => {
     items.forEach(item => {
       const fileName = new Date().getTime() + item.label + item.file.name
@@ -31,6 +31,7 @@ function Create({ inputs, title }) {
         'state_changed',
         snapshot => {
           const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          setProgress(progress)
         },
         e => console.log(e),
         () => {

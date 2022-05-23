@@ -4,7 +4,7 @@ import './Featured.css'
 import { InfoOutlined, PlayArrow } from '@mui/icons-material'
 import axios from 'axios'
 
-function Featured({ type }) {
+function Featured({ type, setGenre }) {
   const [content, setContent] = useState({})
 
   useEffect(() => {
@@ -12,27 +12,25 @@ function Featured({ type }) {
       try {
         const response = await axios.get(`movies/random${type ? `?type=${type}` : ''}`, {
           headers: {
-            token:
-              'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyN2QxYmIxODMzNGUxZGRhZWQxZWRkNSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MzE3MDA4MiwiZXhwIjoxNjUzMTc3MjgyfQ.FlCCT3cLDYZszKw_ozwxKRK6f-dtv2KDzG1cVcUmQ_E',
+            token: 'Bearer ' + JSON.parse(localStorage.getItem('user')).accessToken,
           },
         })
         setContent(response.data[0])
-        console.log(response)
       } catch (e) {
         console.log(e)
       }
     }
     getRandomContent()
-    console.log(content)
   }, [type])
 
   return (
     <div className='featured'>
       {type && (
         <div className='category'>
-          <span className='featured-page-title'>{type === 'movies' ? 'Movies' : 'Series'}</span>
-          <select name='genre' id='genre' className='categories'>
+          <span className='featured-page-title'>{type === 'movie' ? 'Movies' : 'Series'}</span>
+          <select name='genre' id='genre' className='categories' onChange={e => setGenre(e.target.value)}>
             <option value='genre'>Genre</option>
+            <option value='action'>Action</option>
             <option value='adventure'>Adventure</option>
             <option value='comedy'>Comedy</option>
             <option value='crime'>Crime</option>
