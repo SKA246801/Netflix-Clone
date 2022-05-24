@@ -41,6 +41,9 @@
   left: 50px;
   bottom: 100px;
   color: #fff;
+  background-color: #0b0b0b;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 .featured-img {
