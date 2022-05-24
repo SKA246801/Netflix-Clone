@@ -1,13 +1,23 @@
-import React, { useRef, useState } from 'react'
+import React, { forwardRef, useRef, useState } from 'react'
 import './List.css'
 
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material'
 
 import ListItem from '../ListItem/ListItem'
+import MovieModal from '../MovieModal/MovieModal'
 
 function List({ list }) {
   const [slideNumber, setSlideNumber] = useState(0)
   const [isMoved, setIsMoved] = useState(false)
+
+  const [showModal, setShowModal] = useState(false)
+  const [movieId, setMovieId] = useState(null)
+
+  const openModal = e => {
+    console.log(e.target.dataset.id)
+    setMovieId(e.target.dataset.id)
+    setShowModal(!showModal)
+  }
 
   const listRef = useRef()
 
@@ -26,18 +36,21 @@ function List({ list }) {
   }
 
   return (
-    <div className='list'>
-      <span className='list-title'>{list.title}</span>
-      <div className='wrapper'>
-        <ArrowBackIos className='arrow left-arrow' onClick={() => handleClick('left')} style={{ display: !isMoved && 'none' }} />
-        <div className='container' ref={listRef}>
-          {list.content.map((item, i) => (
-            <ListItem key={i} item={item} />
-          ))}
+    <>
+      <div className='list'>
+        <span className='list-title'>{list.title}</span>
+        <div className='wrapper'>
+          <ArrowBackIos className='arrow left-arrow' onClick={() => handleClick('left')} style={{ display: !isMoved && 'none' }} />
+          <div className='container' ref={listRef} onClick={e => openModal(e)}>
+            {list.content.map((item, i) => (
+              <ListItem key={i} item={item} />
+            ))}
+          </div>
+          <ArrowForwardIos className='arrow right-arrow' onClick={() => handleClick('right')} />
         </div>
-        <ArrowForwardIos className='arrow right-arrow' onClick={() => handleClick('right')} />
       </div>
-    </div>
+      <MovieModal showModal={showModal} setShowModal={setShowModal} movieId={movieId} />
+    </>
   )
 }
 

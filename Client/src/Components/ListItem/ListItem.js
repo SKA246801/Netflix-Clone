@@ -1,17 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import './ListItem.css'
-
 import axios from 'axios'
-import MovieModal from '../MovieModal/MovieModal'
 
 function ListItem({ item }) {
   const [movie, setMovie] = useState(null)
-
-  const [showModal, setShowModal] = useState(false)
-
-  const openModal = () => {
-    setShowModal(!showModal)
-  }
 
   useEffect(() => {
     const getMovie = async () => {
@@ -30,15 +22,12 @@ function ListItem({ item }) {
   }, [item])
 
   return (
-    <div className='list-item' onClick={openModal}>
-      {!movie && <h3>Movie is loading</h3>}
-      {movie && (
-        <>
-          <img src={movie.img} className={showModal ? 'movie-img hideImg' : 'movie-img'} alt='' />
-        </>
-      )}
-      <MovieModal showModal={showModal} setShowModal={setShowModal} movie={movie} />
-    </div>
+    <>
+      <div className='list-item'>
+        {!movie && <h3>Movie is loading</h3>}
+        {movie && <img src={movie.img} className='movie-img' alt='' data-id={movie._id} />}
+      </div>
+    </>
   )
 }
 

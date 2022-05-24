@@ -18,8 +18,7 @@ function Watch() {
       <iframe
         width='100%'
         height='100%'
-        src='https://www.youtube.com/embed/Fq6gqi9Ubog'
-        // src={movie.video}
+        src={movie.video}
         title='YouTube video player'
         frameborder='0'
         allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'

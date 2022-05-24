@@ -23,9 +23,6 @@
   object-fit: cover;
   cursor: pointer;
 }
-.hideImg {
-  display: none;
-}
 
 .movie-trailer {
   width: 100%;
