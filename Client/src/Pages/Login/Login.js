@@ -24,7 +24,7 @@ function Login() {
           <h1>Sign In</h1>
           <input type='email' placeholder='Email or phone number' onChange={e => setEmail(e.target.value)} />
           <input type='password' placeholder='Password' onChange={e => setPassword(e.target.value)} />
-          <button className='login-btn' onClick={handleLogin}>
+          <button className='signin-btn' onClick={handleLogin}>
             Sign In
           </button>
           <span>

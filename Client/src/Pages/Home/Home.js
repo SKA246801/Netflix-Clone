@@ -20,7 +20,6 @@ function Home({ type }) {
           },
         })
         setLists(response.data)
-        console.log(response)
         return response.data
       } catch (e) {
         console.log(e)

@@ -10,7 +10,6 @@ function List({ list }) {
   const [isMoved, setIsMoved] = useState(false)
 
   const listRef = useRef()
-  console.log(list)
 
   const handleClick = direction => {
     setIsMoved(true)
@@ -31,10 +30,9 @@ function List({ list }) {
       <span className='list-title'>{list.title}</span>
       <div className='wrapper'>
         <ArrowBackIos className='arrow left-arrow' onClick={() => handleClick('left')} style={{ display: !isMoved && 'none' }} />
-
         <div className='container' ref={listRef}>
           {list.content.map((item, i) => (
-            <ListItem key={i} index={i} item={item} />
+            <ListItem key={i} item={item} />
           ))}
         </div>
         <ArrowForwardIos className='arrow right-arrow' onClick={() => handleClick('right')} />

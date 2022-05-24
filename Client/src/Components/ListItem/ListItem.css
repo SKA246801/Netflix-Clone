@@ -6,19 +6,15 @@
   overflow: hidden;
   color: #fff;
   cursor: pointer;
+  transition: transform 500ms;
+  position: relative;
+  display: block;
 }
 
-.list-item:hover {
-  width: 325px;
-  height: 300px;
-  position: absolute;
-  top: -150px;
-  box-shadow: 0 0 15px 0 rgba(255, 255, 255, 0.22);
-  border-radius: 5px;
-}
-
-.list-item:hover .movie-img {
-  height: 140px;
+.list-item:hover,
+.list-item:focus {
+  transform: scale(1.2);
+  z-index: 1;
 }
 
 .movie-img {
@@ -26,6 +22,9 @@
   height: 100%;
   object-fit: cover;
   cursor: pointer;
+}
+.hideImg {
+  display: none;
 }
 
 .movie-trailer {

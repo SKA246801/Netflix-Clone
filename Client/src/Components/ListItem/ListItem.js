@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import './ListItem.css'
 
-import { Add, PlayArrow, ThumbDownAltOutlined, ThumbUpOffAltOutlined } from '@mui/icons-material'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import MovieModal from '../MovieModal/MovieModal'
 
-function ListItem({ index, item }) {
-  const [isHovered, setIsHovered] = useState(false)
+function ListItem({ item }) {
   const [movie, setMovie] = useState(null)
+
+  const [showModal, setShowModal] = useState(false)
+
+  const openModal = () => {
+    setShowModal(!showModal)
+  }
+
   useEffect(() => {
     const getMovie = async () => {
       try {
@@ -23,38 +28,17 @@ function ListItem({ index, item }) {
     }
     getMovie()
   }, [item])
+
   return (
-    <Link to='/watch' state={movie}>
-      <div
-        className='list-item'
-        style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        {!movie && <h3>Movie is loading</h3>}
-        {movie && <img src={movie.img} className='movie-img' alt='' />}
-        {isHovered && movie && (
-          <>
-            <video src={movie.trailer} autoPlay={true} loop className='movie-trailer' />
-            <div className='item-info'>
-              <div className='list-item-icons-container'>
-                <PlayArrow className='list-item-icon' />
-                <Add className='list-item-icon' />
-                <ThumbUpOffAltOutlined className='list-item-icon' />
-                <ThumbDownAltOutlined className='list-item-icon' />
-              </div>
-              <div className='item-info-top'>
-                <span>{movie.duration}</span>
-                <span className='age-limit'>{movie.ageLimit}</span>
-                <span>{movie.year}</span>
-              </div>
-              <div className='movie-description'>{movie.description}</div>
-              <div className='list-item-genre'>{movie.genre}</div>
-            </div>
-          </>
-        )}
-      </div>
-    </Link>
+    <div className='list-item' onClick={openModal}>
+      {!movie && <h3>Movie is loading</h3>}
+      {movie && (
+        <>
+          <img src={movie.img} className={showModal ? 'movie-img hideImg' : 'movie-img'} alt='' />
+        </>
+      )}
+      <MovieModal showModal={showModal} setShowModal={setShowModal} movie={movie} />
+    </div>
   )
 }
 
