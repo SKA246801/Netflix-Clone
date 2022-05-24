@@ -35,7 +35,7 @@ function Featured({ type, setGenre }) {
             <option value='adventure'>Adventure</option>
             <option value='comedy'>Comedy</option>
             <option value='crime'>Crime</option>
-            <option value='fantasy'>Fantasy</option>
+            <option value='family'>Family</option>
             <option value='historical'>Historical</option>
             <option value='horror'>Horror</option>
             <option value='romance'>Romance</option>
@@ -51,7 +51,8 @@ function Featured({ type, setGenre }) {
       <img src={content.img} className='background-img' alt='' />
 
       <div className='info'>
-        <img src={content.imgTitle} className='featured-img' alt='movie' />
+        {/* <img src={content.img} className='featured-img' alt='movie' /> */}
+        <h1 className='featured-img-title'>{content.title}</h1>
         <span className='featured-description'>{content.description}</span>
         <div className='buttons'>
           <button className='play'>

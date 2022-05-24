@@ -30,7 +30,7 @@ export const movieColumns = [
   {
     field: 'movie',
     headerName: 'Movie',
-    width: 200,
+    width: 300,
     renderCell: params => {
       return (
         <div className='cellWithImg'>
@@ -41,9 +41,9 @@ export const movieColumns = [
       )
     },
   },
-  { field: 'genre', headerName: 'Genre', width: 150 },
+  { field: 'genre', headerName: 'Genre', width: 100 },
   { field: 'year', headerName: 'Year', width: 100 },
-  { field: 'ageLimit', headerName: 'Age Requirement', width: 150 },
+  { field: 'rating', headerName: 'Rating', width: 100 },
   { field: 'isSeries', headerName: 'Series', width: 100 },
 ]
 

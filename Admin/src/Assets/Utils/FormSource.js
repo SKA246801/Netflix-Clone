@@ -59,10 +59,10 @@ export const movieInputs = [
   },
   {
     id: 4,
-    label: 'Age Requirement',
+    label: 'Rating',
     type: 'text',
-    placeholder: '13',
-    name: 'ageLimit',
+    placeholder: 'PG-13',
+    name: 'rating',
   },
   {
     id: 6,

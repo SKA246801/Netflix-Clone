@@ -12,8 +12,6 @@ function Create({ inputs, title }) {
   const [file, setFile] = useState('')
   const [movie, setMovie] = useState({})
   const [img, setImg] = useState(null)
-  const [imgTitle, setImgTitle] = useState(null)
-  const [imgSmall, setImgSmall] = useState(null)
   const [uploaded, setUploaded] = useState(0)
   const { movieDispatch } = useContext(MovieContext)
   const navigate = useNavigate()
@@ -53,14 +51,6 @@ function Create({ inputs, title }) {
         file: img,
         label: 'img',
       },
-      {
-        file: imgTitle,
-        label: 'imgTitle',
-      },
-      {
-        file: imgSmall,
-        label: 'imgSmall',
-      },
     ])
   }
 
@@ -98,18 +88,6 @@ function Create({ inputs, title }) {
                   style={{ display: 'none' }}
                   name='img'
                 />
-                {title === 'Add New Movie' && (
-                  <>
-                    <label htmlFor='titleImg'>
-                      Title Image: <DriveFolderUploadOutlined className='fileIcon' />
-                    </label>
-                    <input type='file' id='titleImg' style={{ display: 'none' }} name='imgTitle' onChange={e => setImgTitle(e.target.files[0])} />
-                    <label htmlFor='thumbnailImg'>
-                      Thumbnail Image: <DriveFolderUploadOutlined className='fileIcon' />
-                    </label>
-                    <input type='file' id='thumbnailImg' style={{ display: 'none' }} name='imgSmall' onChange={e => setImgSmall(e.target.files[0])} />
-                  </>
-                )}
               </div>
               {inputs.map(input => (
                 <div className='formInput' key={input.id}>
@@ -126,7 +104,7 @@ function Create({ inputs, title }) {
                   </select>
                 </div>
               )}
-              {uploaded === 3 ? <button onClick={handleSubmit}>Create</button> : <button onClick={handleUpload}>Upload</button>}
+              {uploaded === 1 ? <button onClick={handleSubmit}>Create</button> : <button onClick={handleUpload}>Upload</button>}
             </form>
           </div>
         </div>

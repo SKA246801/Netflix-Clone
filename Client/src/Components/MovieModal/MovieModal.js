@@ -53,7 +53,7 @@ function MovieModal({ showModal, setShowModal, movieId }) {
                 </div>
                 <div className='item-info-top'>
                   <span>{movie.duration}</span>
-                  <span className='age-limit'>{movie.ageLimit}</span>
+                  <span className='age-limit'>{movie.rating}</span>
                   <span>{movie.year}</span>
                 </div>
                 <div className='movie-description'>{movie.description}</div>

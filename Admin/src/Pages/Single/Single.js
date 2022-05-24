@@ -82,8 +82,8 @@ function Single({ type }) {
                     <span className='itemValue'>{movie.year}</span>
                   </div>
                   <div className='detailItem'>
-                    <span className='itemKey'>Age Requirement:</span>
-                    <span className='itemValue'>{movie.ageLimit}</span>
+                    <span className='itemKey'>Rating:</span>
+                    <span className='itemValue'>{movie.rating}</span>
                   </div>
                   <div className='detailItem'>
                     <span className='itemKey'>Series:</span>
@@ -119,8 +119,8 @@ function Single({ type }) {
                     <input type='text' placeholder={movie.genre} />
                   </div>
                   <div className='formInput'>
-                    <label>Age Requirement</label>
-                    <input type='text' placeholder={movie.ageLimit} />
+                    <label>Rating</label>
+                    <input type='text' placeholder={movie.rating} />
                   </div>
                   <div className='formInput'>
                     <label>Trailer</label>
