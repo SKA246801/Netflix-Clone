@@ -70,3 +70,24 @@
   padding: 10px;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 768px) {
+  .nav-tags {
+    font-size: 17px;
+  }
+}
+
+@media only screen and (max-width: 555px) {
+  .right {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .netflix-logo {
+    margin: 0 20px;
+  }
+  .nav-tags {
+    font-size: 15px;
+  }
+}

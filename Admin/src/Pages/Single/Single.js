@@ -13,7 +13,6 @@ function Single({ type }) {
   const [file, setFile] = useState('')
 
   const list = location.state
-  console.log(location)
 
   return (
     <div className='single'>

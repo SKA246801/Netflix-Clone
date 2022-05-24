@@ -31,12 +31,9 @@ function Navbar() {
         <Link to='/movies' className='link'>
           <span className='nav-tags'>Movies</span>
         </Link>
-        <span className='nav-tags'>New and Popular</span>
-        <span className='nav-tags'>My List</span>
       </div>
       <div className='right'>
-        <SearchIcon className='icon' />
-        <span>KID</span>
+        <SearchIcon className='icon' style={{ margin: '0' }} />
         <NotifactionsIcon className='icon' />
         <img className='profile-picture' src={require('../../Assets/Images/marvel.jpg')} alt='profile' />
         <div className='profile'>

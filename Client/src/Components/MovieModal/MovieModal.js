@@ -7,7 +7,6 @@ import axios from 'axios'
 function MovieModal({ showModal, setShowModal, movieId }) {
   const modalRef = useRef()
   const [movie, setMovie] = useState(null)
-  console.log(movieId)
 
   useEffect(() => {
     setMovie(null)
@@ -19,7 +18,6 @@ function MovieModal({ showModal, setShowModal, movieId }) {
           },
         })
         setMovie(response.data)
-        console.log(movie)
       } catch (e) {
         console.log(e)
       }
