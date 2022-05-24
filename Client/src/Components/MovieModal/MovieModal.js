@@ -52,12 +52,12 @@ function MovieModal({ showModal, setShowModal, movieId }) {
                   <ThumbDownAltOutlined className='list-item-icon' />
                 </div>
                 <div className='item-info-top'>
+                  <span className='list-item-genre'>{movie.genre}</span>
                   <span>{movie.duration}</span>
                   <span className='age-limit'>{movie.rating}</span>
                   <span>{movie.year}</span>
                 </div>
                 <div className='movie-description'>{movie.description}</div>
-                <div className='list-item-genre'>{movie.genre}</div>
               </div>
             )}
           </div>
