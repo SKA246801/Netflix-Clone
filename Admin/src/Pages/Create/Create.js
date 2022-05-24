@@ -97,10 +97,11 @@ function Create({ inputs, title }) {
               ))}
               {title === 'Add New Movie' && (
                 <div className='formInput select'>
-                  <label>Series</label>
-                  <select name='isSeries' id='isSeries'>
-                    <option value='true'>Yes</option>
-                    <option value='false'>No</option>
+                  <label>Type</label>
+                  <select name='isSeries' id='isSeries' onChange={handleChange}>
+                    <option value=''></option>
+                    <option value='false'>Movie</option>
+                    <option value='true'>Series</option>
                   </select>
                 </div>
               )}

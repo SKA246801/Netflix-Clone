@@ -30,15 +30,15 @@ function Featured({ type, setGenre }) {
         <div className='category'>
           <span className='featured-page-title'>{type === 'movie' ? 'Movies' : 'Series'}</span>
           <select name='genre' id='genre' className='categories' onChange={e => setGenre(e.target.value)}>
-            <option value='genre'>Genre</option>
-            <option value='action'>Action</option>
-            <option value='adventure'>Adventure</option>
-            <option value='comedy'>Comedy</option>
-            <option value='crime'>Crime</option>
-            <option value='family'>Family</option>
-            <option value='horror'>Horror</option>
-            <option value='sci-fi'>Sci-fi</option>
-            <option value='drama'>Drama</option>
+            <option value=''>Genre</option>
+            <option value='Action'>Action</option>
+            <option value='Adventure'>Adventure</option>
+            <option value='Comedy'>Comedy</option>
+            <option value='Crime'>Crime</option>
+            <option value='Family'>Family</option>
+            <option value='Horror'>Horror</option>
+            <option value='Sci-Fi'>Sci-fi</option>
+            <option value='Drama'>Drama</option>
           </select>
         </div>
       )}

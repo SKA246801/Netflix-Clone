@@ -58,5 +58,6 @@ div .list-item-icon {
 
 .list-item-genre {
   font-size: 14px;
-  color: lightgray;
+  color: gray;
+  margin-right: 10px;
 }

@@ -74,6 +74,10 @@ function Single({ type }) {
                     <span className='itemValue'>{movie._id}</span>
                   </div>
                   <div className='detailItem'>
+                    <span className='itemKey'>Description</span>
+                    <span className='itemValue'>{movie.description}</span>
+                  </div>
+                  <div className='detailItem'>
                     <span className='itemKey'>Genre:</span>
                     <span className='itemValue'>{movie.genre}</span>
                   </div>
@@ -84,6 +88,10 @@ function Single({ type }) {
                   <div className='detailItem'>
                     <span className='itemKey'>Rating:</span>
                     <span className='itemValue'>{movie.rating}</span>
+                  </div>
+                  <div className='detailItem'>
+                    <span className='itemKey'>Duration:</span>
+                    <span className='itemValue'>{movie.duration}</span>
                   </div>
                   <div className='detailItem'>
                     <span className='itemKey'>Series:</span>

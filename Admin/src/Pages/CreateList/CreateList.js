@@ -57,6 +57,7 @@ function CreateList({ inputs }) {
                 <div className='createListFormInput select'>
                   <label>Type</label>
                   <select name='type' onChange={handleChange}>
+                    <option value=''>Type</option>
                     <option value='movie'>Movie</option>
                     <option value='series'>Series</option>
                   </select>
