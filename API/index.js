@@ -23,7 +23,7 @@ app.use('/api/users', userRoute)
 app.use('/api/movies', movieRoute)
 app.use('/api/lists', listRoute)
 
-const port = process.env.port || 3001
+const PORT = process.env.PORT || 3001
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../Client/build')))
@@ -33,6 +33,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve('Client', 'build', 'index.html'))
 })
 
-app.listen(port, () => {
+app.listen(PORT, () => {
   console.log(`Backend server is running!`)
 })
