@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node API/index.js",
     "build": "cd Client && npm run build",
-    "install": "cd Client && npm i",
+    "install": "cd Client && npm i && cd ../API && npm i",
     "heroku-postbuild": "npm run install && npm run build"
   },
   "repository": {
