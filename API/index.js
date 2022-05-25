@@ -8,7 +8,6 @@ const movieRoute = require('./Routes/Movies')
 const listRoute = require('./Routes/Lists')
 
 dotenv.config()
-
 mongoose
   .connect(process.env.sometext1, {
     usenewUrlParser: true,
@@ -23,6 +22,8 @@ app.use('/api/users', userRoute)
 app.use('/api/movies', movieRoute)
 app.use('/api/lists', listRoute)
 
-app.listen(3001, () => {
+const port = process.env.port || 3001
+
+app.listen(port, () => {
   console.log(`Backend server is running!`)
 })
