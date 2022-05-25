@@ -8,7 +8,7 @@ const userRoute = require('./Routes/Users')
 const movieRoute = require('./Routes/Movies')
 const listRoute = require('./Routes/Lists')
 
-dotenv.config()
+dotenv.config({ path: __dirname + '/.env' })
 mongoose
   .connect(process.env.sometext1 || 'mongodb://localhost/netflix-clone', {
     usenewUrlParser: true,
@@ -28,6 +28,10 @@ const port = process.env.port || 3001
 if (process.env.sometext4 === 'production') {
   app.use(express.static(path.join(__dirname, '../Client/build')))
 }
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve('Client', 'build', 'index.html'))
+})
 
 app.listen(port, () => {
   console.log(`Backend server is running!`)

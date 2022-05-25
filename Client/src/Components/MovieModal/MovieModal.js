@@ -12,7 +12,7 @@ function MovieModal({ showModal, setShowModal, movieId }) {
     setMovie(null)
     const getMovie = async () => {
       try {
-        const response = await axios.get(`/movies/find/${movieId}`, {
+        const response = await axios.get(`api/movies/find/${movieId}`, {
           headers: {
             token: 'Bearer ' + JSON.parse(localStorage.getItem('user')).accessToken,
           },

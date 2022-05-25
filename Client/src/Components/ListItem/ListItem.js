@@ -8,7 +8,7 @@ function ListItem({ item }) {
   useEffect(() => {
     const getMovie = async () => {
       try {
-        const response = await axios.get(`/movies/find/${item}`, {
+        const response = await axios.get(`api/movies/find/${item}`, {
           headers: {
             token: 'Bearer ' + JSON.parse(localStorage.getItem('user')).accessToken,
           },

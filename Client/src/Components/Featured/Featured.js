@@ -11,7 +11,7 @@ function Featured({ type, setGenre }) {
     setGenre(null)
     const getRandomContent = async () => {
       try {
-        const response = await axios.get(`movies/random${type ? `?type=${type}` : ''}`, {
+        const response = await axios.get(`api/movies/random${type ? `?type=${type}` : ''}`, {
           headers: {
             token: 'Bearer ' + JSON.parse(localStorage.getItem('user')).accessToken,
           },

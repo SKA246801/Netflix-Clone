@@ -14,7 +14,7 @@ function Home({ type }) {
         setGenre(null)
       }
       try {
-        const response = await axios.get(`lists${type ? '?type=' + type : ''}${genre ? '&genre=' + genre : ''}`, {
+        const response = await axios.get(`api/lists${type ? '?type=' + type : ''}${genre ? '&genre=' + genre : ''}`, {
           headers: {
             token: 'Bearer ' + JSON.parse(localStorage.getItem('user')).accessToken,
           },
