@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node API/index.js"
+    "start": "node API/index.js",
+    "build": "cd Client && npm run build",
+    "install": "cd Client && npm i",
+    "heroku-postbuild": "npm run install && npm run build"
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/SKA246801/Netflix-Clone/issues"
   },
-  "homepage": "https://github.com/SKA246801/Netflix-Clone#readme"
+  "homepage": "https://github.com/SKA246801/Netflix-Clone#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1"
+  }
 }
