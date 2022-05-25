@@ -25,7 +25,7 @@ app.use('/api/lists', listRoute)
 
 const port = process.env.port || 3001
 
-if (process.env.sometext4 === 'production') {
+if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../Client/build')))
 }
 
