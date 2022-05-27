@@ -39,7 +39,7 @@
   width: 35%;
   position: absolute;
   left: 50px;
-  bottom: 100px;
+  bottom: 30px;
   color: #fff;
   background-color: #0b0b0b;
   border-radius: 5px;
@@ -87,20 +87,51 @@ button span {
 
 @media only screen and (max-width: 700px) {
   .info {
-    min-width: 400px;
+    min-width: 440px;
+    max-width: 440px;
+    left: 25px;
+    bottom: 20px;
+  }
+  .category {
+    left: 25px;
   }
 }
 
 @media only screen and (max-width: 500px) {
   .info {
-    min-width: 300px;
-    left: 30px;
+    background: none;
+  }
+  .featured-img-title,
+  .featured-description {
+    display: none;
+  }
+  .buttons {
+    max-width: 450px;
+    justify-content: space-around;
   }
 }
 
-@media only screen and (max-width: 400px) {
-  .info {
-    min-width: 250px;
+@media only screen and (max-width: 425px) {
+  .buttons {
+    max-width: 375px;
+  }
+  .category {
     left: 15px;
+  }
+  .featured-page-title {
+    font-size: 25px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .buttons {
+    max-width: 325px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .buttons {
+    max-width: 250px;
+    gap: 45px;
   }
 }

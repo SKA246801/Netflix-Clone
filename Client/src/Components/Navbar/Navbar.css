@@ -77,15 +77,21 @@
   }
 }
 
+@media only screen and (max-width: 700px) {
+  .netflix-logo {
+    margin: 0 40px 0 25px;
+  }
+}
+
 @media only screen and (max-width: 555px) {
   .right {
     display: none;
   }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 450px) {
   .netflix-logo {
-    margin: 0 20px;
+    margin: 0 15px;
   }
   .nav-tags {
     font-size: 15px;
