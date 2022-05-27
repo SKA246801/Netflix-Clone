@@ -10,7 +10,7 @@ function ListItem({ item }) {
       try {
         const response = await axios.get(`api/movies/find/${item}`, {
           headers: {
-            token: 'Bearer ' + JSON.parse(localStorage.getItem('user')).accessToken,
+            token: 'Bearer ' + JSON.parse(sessionStorage.getItem('user')).accessToken,
           },
         })
         setMovie(response.data)

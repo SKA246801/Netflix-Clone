@@ -16,7 +16,7 @@ function Home({ type }) {
       try {
         const response = await axios.get(`api/lists${type ? '?type=' + type : ''}${genre ? '&genre=' + genre : ''}`, {
           headers: {
-            token: 'Bearer ' + JSON.parse(localStorage.getItem('user')).accessToken,
+            token: 'Bearer ' + JSON.parse(sessionStorage.getItem('user')).accessToken,
           },
         })
         setLists(response.data)

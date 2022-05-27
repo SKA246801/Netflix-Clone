@@ -18,7 +18,7 @@ function Home() {
       try {
         const response = await axios.get('/users/stats', {
           headers: {
-            token: 'Bearer ' + JSON.parse(localStorage.getItem('user')).accessToken,
+            token: 'Bearer ' + JSON.parse(sessionStorage.getItem('user')).accessToken,
           },
         })
         const stats = response.data.sort((a, b) => {

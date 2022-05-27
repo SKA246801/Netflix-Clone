@@ -16,7 +16,7 @@ export const getMovies = async movieDispatch => {
   try {
     const response = await axios.get('/movies', {
       headers: {
-        token: 'Bearer ' + JSON.parse(localStorage.getItem('user')).accessToken,
+        token: 'Bearer ' + JSON.parse(sessionStorage.getItem('user')).accessToken,
       },
     })
     movieDispatch(getMoviesSuccess(response.data))
@@ -30,7 +30,7 @@ export const deleteMovie = async (id, movieDispatch) => {
   try {
     await axios.delete(`/movies/${id}`, {
       headers: {
-        token: 'Bearer ' + JSON.parse(localStorage.getItem('user')).accessToken,
+        token: 'Bearer ' + JSON.parse(sessionStorage.getItem('user')).accessToken,
       },
     })
     movieDispatch(deleteMovieSuccess(id))
@@ -44,7 +44,7 @@ export const createMovie = async (movie, movieDispatch) => {
   try {
     const response = await axios.post('/movies/', movie, {
       headers: {
-        token: 'Bearer ' + JSON.parse(localStorage.getItem('user')).accessToken,
+        token: 'Bearer ' + JSON.parse(sessionStorage.getItem('user')).accessToken,
       },
     })
     movieDispatch(createMovieSuccess(response.data))

@@ -17,7 +17,7 @@ function TableComponent({ type }) {
       try {
         const response = await axios.get('/users?new=true', {
           headers: {
-            token: 'Bearer ' + JSON.parse(localStorage.getItem('user')).accessToken,
+            token: 'Bearer ' + JSON.parse(sessionStorage.getItem('user')).accessToken,
           },
         })
         setNewUsers(response.data)
