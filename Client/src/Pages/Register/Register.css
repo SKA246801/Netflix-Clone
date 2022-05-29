@@ -43,18 +43,22 @@
   justify-content: center;
   color: #fff;
   z-index: 0;
+  margin: -50px 0 0 0;
 }
 
 .register-container h1 {
   font-size: 50px;
+  text-align: center;
 }
 
 .register-container h2 {
   margin: 20px;
+  text-align: center;
 }
 
 .register-container p {
   font-size: 20px;
+  text-align: center;
 }
 
 .register-input {
@@ -74,6 +78,24 @@
   padding: 0 10px;
 }
 
+.register-input-2 {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  flex-direction: column;
+  width: 100%;
+  height: 150px;
+  gap: 10px;
+}
+
+.register-input-2 input {
+  flex: 9;
+  height: 100%;
+  border: none;
+  padding: 0 10px;
+  width: 50%;
+}
+
 .register-btn {
   flex: 3;
   height: 100%;
@@ -84,19 +106,62 @@
   cursor: pointer;
 }
 
+.register-btn-2 {
+  flex: 3;
+  height: 100%;
+  background-color: #e50914;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px;
+}
+
 @media only screen and (max-width: 1019px) {
   .register-input {
     flex-direction: column;
     width: 70%;
-    height: 100px;
+    height: 110px;
+    gap: 10px;
   }
 
   .register-input input {
     width: 80%;
   }
 
+  .register-input-2 input {
+    width: 70%;
+  }
+
   .register-btn {
-    padding: 10px;
+    padding: 10px 15px;
     margin-top: 10px;
+  }
+
+  .register-btn-2 {
+    padding: 5px 15px;
+    margin-top: 10px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .register-container h1 {
+    font-size: 40px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .register-logo {
+    height: 24px;
+  }
+  .register-container h1 {
+    font-size: 28px;
+  }
+  .register-container h2 {
+    font-size: 18px;
+  }
+  .register-container p {
+    font-size: 18px;
+    padding: 0 40px;
   }
 }

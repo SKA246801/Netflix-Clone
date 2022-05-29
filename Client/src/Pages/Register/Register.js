@@ -47,10 +47,10 @@ function Register() {
             </button>
           </div>
         ) : (
-          <form className='register-input'>
+          <form className='register-input-2'>
             <input type='username' placeholder='Enter Username' ref={usernameRef} />
             <input type='password' placeholder='Enter password' ref={passwordRef} />
-            <button className='register-btn' onClick={handleFinish}>
+            <button className='register-btn-2' onClick={handleFinish}>
               Start
             </button>
           </form>
