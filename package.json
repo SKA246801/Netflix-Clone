@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node API/index.js",
+    "develop": "concurrently \"cd API && npm start\" \"cd Client && npm start\" \"cd Admin && npm start\"",
     "build": "cd Client && npm run build",
     "install": "cd Client && npm i && cd ../API && npm i",
     "heroku-postbuild": "npm run install && npm run build"
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/SKA246801/Netflix-Clone#readme",
   "dependencies": {
+    "concurrently": "^7.2.1",
     "dotenv": "^16.0.1"
   }
 }
